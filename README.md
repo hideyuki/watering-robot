@@ -1,7 +1,13 @@
-# 水やってロボット
-- 諸事情で、「全自動水やりロボット」から「”水やって“と言ってくれるロボット」に変更となりました。
-- 人が水をやらないといけない。
-- ロボットにとってはヒトもシステムの一部なのです。
+# 水やりロボット 改め、「水やって！」というロボット #brhack
+- Jun. 14, 2914: Beatrobo ハードウェアハッカソン で作ったものです。
+   - [http://beatrobo.doorkeeper.jp/events/12214](http://beatrobo.doorkeeper.jp/events/12214)
+   - [https://www.facebook.com/hashtag/brhack](https://www.facebook.com/hashtag/brhack)
+- 私の作るものは「全自動水やりロボット」から「”水やって“と言ってくれるロボット」に変更となりました！
+
+- いいわけ
+   - 人が水をやらないといけない。
+   - ロボットにとってはヒトもシステムの一部なのです。
+   - つまりは、ロボットがヒトを使って水やりを達成しております。
 
 
 ## 3D CAD
@@ -30,7 +36,7 @@ $ screen /dev/tty.usbmodem1411 57600
    - 300~700 : humid soil
    - 700~950 : in water
 
-# RaspberryPi (Model A)
+## RaspberryPi (Model A)
 - Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
 - 無線LANでネットワークに接続
    - USBタイプの無線LANドングル [GW-USNANO2A](http://www.amazon.co.jp/%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91PLANEX-%E7%84%A1%E7%B7%9ALAN%E5%AD%90%E6%A9%9F-USB%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC%E5%9E%8B-150Mbps-GW-USNANO2A/dp/B00ESA34GA/ref=sr_1_2?ie=UTF8&qid=1402773295&sr=8-2&keywords=%E7%84%A1%E7%B7%9Alan+usb) を利用
@@ -70,6 +76,7 @@ watering
 - そうすると、外部から以下のコマンドでsshできる
 
 ```
-$ ssh pi@watering.local
+hide@mac$ ssh pi@watering.local
 ```
 
+	
