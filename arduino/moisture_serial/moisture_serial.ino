@@ -9,6 +9,14 @@ void setup(){
 }
 
 void loop(){
-  Serial.println(analogRead(0));  
-  delay(1000);
+  char c = Serial.read();
+  
+  if(c=='m'){
+    // Moisture sensor
+    Serial.println(analogRead(0));  
+  }
+  else if(c=='t'){
+    // Temperature sensor
+    Serial.println(analogRead(1));
+  }
 }
