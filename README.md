@@ -17,7 +17,9 @@
 $ screen /dev/tty.usbmodem1411 57600
 ```
    - screenの終了は [Ctrl+a, k]
+
 - 湿度センサのレンジ 参照元: [http://www.dfrobot.com/wiki/index.php?title=Moisture_Sensor_(SKU:SEN0114)](http://www.dfrobot.com/wiki/index.php?title=Moisture_Sensor_(SKU:SEN0114))
    - 0 ~300 : dry soil
    - 300~700 : humid soil
    - 700~950 : in water
+
