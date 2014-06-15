@@ -17,7 +17,11 @@
 - Sculpteo にもデータをアップロードしています: [メインパーツ](http://www.sculpteo.com/en/design/moisture-sensor-case-part-0/epgLNvjr), [蓋パーツ](http://www.sculpteo.com/en/design/moisture-sensor-case-part-1-2/ZrL73rzd)
    - そのままオンラインで注文できます。
 
-## Arduino UNO
+## Arduino
+- 利用しているボード: [SainSmart UNO R3 ATmega328-AU Development Board Compatible With Arduino UNO R3](http://www.sainsmart.com/featured-products/sainsmart-uno-r3-atmega328-au-development-board-compatible-with-arduino-uno-r3.html)
+   - 普通のArduinoとは違い 3.3V zでの動作が可能。RaspberryPiと電圧変換なく接続できるようになります。 
+   - [amazonから購入](http://www.amazon.co.jp/%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%EF%BC%88SainSmart%EF%BC%89UNO-R3-ATmega328P%E6%90%AD%E8%BC%89%EF%BC%81-UNO-Duemilanove/dp/B00BPISRWE/ref=sr_1_1?ie=UTF8&qid=1402799424&sr=8-1&keywords=SainSmart+UNO+R3)できます。￥1,990 (2014年6月15日現在) 
+   - マニュアルは[こちら](http://www.sainsmart.com/zen/documents/20-011-937/SainSmart-UNO-R3.pdf)
 - シリアル経由で送られてくるコマンドにより、湿度センサ・温度センサのアナログ値をシリアルでraspberryPiに送ります
 - コマンド一覧
    - m: Moisture。湿度センサのアナログ値を返す
