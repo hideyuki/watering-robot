@@ -11,7 +11,7 @@
 
 
 ## 3D CAD
-<iframe class="sculpteo-viewer" type="text/html" width="300" height="360" src="http://www.sculpteo.com/embed/design/epgLNvjr" frameborder="0" scrolling="no"></iframe>
+![image](https://dl.dropboxusercontent.com/u/180053/github/watering-robot/moist-case.jpg)
 
 - 湿度センサをむき出しにしていると怖いのでケースを作りました。
 - メインパーツと蓋パーツの2部品です。

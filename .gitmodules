@@ -1,3 +1,0 @@
-[submodule "arduino/moisture_serial/DHT"]
-	path = arduino/moisture_serial/DHT
-	url = git@github.com:adafruit/DHT-sensor-library.git

@@ -4,16 +4,15 @@
  * Date: Jun. 14, 2014
  */
 
-#include "DHT/DHT.h"
+#include "DHT.h"
 
-#define SAMPLE_COUNT 20;
-#define SAMPLE_DELAY 20;
-#define MOISTURE_SENSOR_PIN 0;
-#define TEMPERATURE_SENSOR_PIN 1;
-#define LED_PIN 13;
-#define DHT_PIN 2;
-#define BAUDRATE 57600;  // long
-#define DHT_TYPE DHT11   // for DHT lib
+#define SAMPLE_COUNT 20
+#define SAMPLE_DELAY 20
+#define MOISTURE_SENSOR_PIN 0
+#define LED_PIN 13
+#define DHT_PIN 2
+#define BAUDRATE 57600  // long
+#define DHT_TYPE DHT11  // for DHT lib
 
 // variables
 DHT dht(DHT_PIN, DHT_TYPE);
@@ -55,12 +54,7 @@ void loop(){
     // Temperature sensor
     float h = dht.readHumidity();
     float t = dht.readTemperature();
-    Serial.print("Humidity: ");
-    Serial.print(h);
-    Serial.print(" %\t");
-    Serial.print("Temperature: ");
-    Serial.print(t);
-    Serial.println(" *C");
-    //Serial.println(getAnalogValue(TEMPERATURE_SENSOR_PIN));
+    Serial.println(h);
+    Serial.println(t);
   }
 }
