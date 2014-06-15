@@ -54,6 +54,12 @@ $ screen /dev/tty.usbmodem1411 57600
 - 使っているセンサは [DHT11 Temperature and Humidity Sensor](http://www.dfrobot.com/index.php?route=product/product&product_id=174#.U51Xyo1_vho)
    - 秋月で[買えます](http://akizukidenshi.com/catalog/g/gM-07040/)。￥520
 - ライブラリは[こちら](https://github.com/adafruit/DHT-sensor-library)
+   - submodule として登録しています。ルートディレクトリで以下のコマンドを実行すると、arduino/DHTにライブラリがロードされます
+```
+$ git submodule init --update
+```
+
+
 
 ## RaspberryPi (Model A)
 - Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる

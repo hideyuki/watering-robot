@@ -3,32 +3,42 @@
  * Author: Hideyuki Takei (hide@beatrobo.com)
  * Date: Jun. 14, 2014
  */
- 
-#define sampleCount 20;
-#define sampleDelay 20;
-#define moistureSensorPin 0;
-#define temperatureSensorPin 1;
-#define ledPin 13;
-#define baudrate 57600;  // long
- 
+
+#include "DHT/DHT.h"
+
+#define SAMPLE_COUNT 20;
+#define SAMPLE_DELAY 20;
+#define MOISTURE_SENSOR_PIN 0;
+#define TEMPERATURE_SENSOR_PIN 1;
+#define LED_PIN 13;
+#define DHT_PIN 2;
+#define BAUDRATE 57600;  // long
+#define DHT_TYPE DHT11   // for DHT lib
+
+// variables
+DHT dht(DHT_PIN, DHT_TYPE);
+
 void setup(){
   // pin
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, HIGH);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);
   
   // serial
-  Serial.begin(baudrate);
+  Serial.begin(BAUDRATE);
+  
+  // HDHT
+  dht.begin();
 }
 
 // get analog value with avarage of some samples
 int getAnalogValue(int pin){
   long val = 0;
   
-  for(int i=0; i<sampleCount; i++){
+  for(int i=0; i<SAMPLE_COUNT; i++){
     val += analogRead(pin);
-    delay(sampleDelay);
+    delay(SAMPLE_DELAY);
   }
-  val /= sampleCount;
+  val /= SAMPLE_COUNT;
   
   return val;
 }
@@ -39,10 +49,18 @@ void loop(){
   
   if(c=='m'){
     // Moisture sensor
-    Serial.println(getAnalogValue(moistureSensorPin));  
+    Serial.println(getAnalogValue(MOISTURE_SENSOR_PIN));  
   }
   else if(c=='t'){
     // Temperature sensor
-    Serial.println(getAnalogValue(temperatureSensorPin));
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+    Serial.print("Humidity: ");
+    Serial.print(h);
+    Serial.print(" %\t");
+    Serial.print("Temperature: ");
+    Serial.print(t);
+    Serial.println(" *C");
+    //Serial.println(getAnalogValue(TEMPERATURE_SENSOR_PIN));
   }
 }
