@@ -38,6 +38,7 @@ $ screen /dev/tty.usbmodem1411 57600
 
 ## RaspberryPi (Model A)
 - Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
+- Raspbian with 4GB SD Card
 - 無線LANでネットワークに接続
    - USBタイプの無線LANドングル [GW-USNANO2A](http://www.amazon.co.jp/%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91PLANEX-%E7%84%A1%E7%B7%9ALAN%E5%AD%90%E6%A9%9F-USB%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC%E5%9E%8B-150Mbps-GW-USNANO2A/dp/B00ESA34GA/ref=sr_1_2?ie=UTF8&qid=1402773295&sr=8-2&keywords=%E7%84%A1%E7%B7%9Alan+usb) を利用
    - 無線LANのつなげるためのコマンドは以下
