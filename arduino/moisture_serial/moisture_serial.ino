@@ -4,16 +4,23 @@
  * Date: Jun. 14, 2014
  */
  
-const int sampleCount = 20;
-const int sampleDelay = 20;
-const int pinMoistureSensor = 0;
-const int pinTemperatureSensor = 1;
-const long baudrate = 57600;
+#define sampleCount 20;
+#define sampleDelay 20;
+#define moistureSensorPin 0;
+#define temperatureSensorPin 1;
+#define ledPin 13;
+#define baudrate 57600;  // long
  
 void setup(){
+  // pin
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+  
+  // serial
   Serial.begin(baudrate);
 }
 
+// get analog value with avarage of some samples
 int getAnalogValue(int pin){
   long val = 0;
   
@@ -27,14 +34,15 @@ int getAnalogValue(int pin){
 }
 
 void loop(){
+  // read command
   char c = Serial.read();
   
   if(c=='m'){
     // Moisture sensor
-    Serial.println(getAnalogValue(pinMoistureSensor));  
+    Serial.println(getAnalogValue(moistureSensorPin));  
   }
   else if(c=='t'){
     // Temperature sensor
-    Serial.println(getAnalogValue(pinTemperatureSensor));
+    Serial.println(getAnalogValue(temperatureSensorPin));
   }
 }

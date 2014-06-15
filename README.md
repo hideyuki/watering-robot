@@ -11,6 +11,8 @@
 
 
 ## 3D CAD
+<iframe class="sculpteo-viewer" type="text/html" width="300" height="360" src="http://www.sculpteo.com/embed/design/epgLNvjr" frameborder="0" scrolling="no"></iframe>
+
 - 湿度センサをむき出しにしていると怖いのでケースを作りました。
 - メインパーツと蓋パーツの2部品です。
 - `3d-cad` ディレクトリに Autodesk Inventor 2014 形式(ipt) と STL 形式(単位: mm) が入っています。
@@ -35,17 +37,46 @@ $ screen /dev/tty.usbmodem1411 57600
 ```
    - screenの終了は [Ctrl+a, k]
 
+
+### 土の湿度センサ
+![image](http://akizukidenshi.com/img/goods/L/M-07047.jpg)
+
+- 使っているセンサは [Soil Moisture Sensor (Arduino Compatible) Immersion Gold](http://www.dfrobot.com/index.php?route=product/product&product_id=599#.U51XE41_vho)
+   - 秋月でも[買えます](http://akizukidenshi.com/catalog/g/gM-07047/) 。 ￥500
 - 湿度センサのレンジ 参照元: [http://www.dfrobot.com/wiki/index.php?title=Moisture_Sensor_(SKU:SEN0114)](http://www.dfrobot.com/wiki/index.php?title=Moisture_Sensor_(SKU:SEN0114))
    - 0 ~300 : dry soil
    - 300~700 : humid soil
-   - 700~950 : in water
+   - 700~950 : in water   
+
+### 温度・湿度センサ
+![image](http://akizukidenshi.com/img/goods/L/M-07040.jpg)
+
+- 使っているセンサは [DHT11 Temperature and Humidity Sensor](http://www.dfrobot.com/index.php?route=product/product&product_id=174#.U51Xyo1_vho)
+   - 秋月で[買えます](http://akizukidenshi.com/catalog/g/gM-07040/)。￥520
+- ライブラリは[こちら](https://github.com/adafruit/DHT-sensor-library)
 
 ## RaspberryPi (Model A)
 - Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
 - Raspbian with 4GB SD Card
-- 無線LANでネットワークに接続
-   - USBタイプの無線LANドングル [GW-USNANO2A](http://www.amazon.co.jp/%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91PLANEX-%E7%84%A1%E7%B7%9ALAN%E5%AD%90%E6%A9%9F-USB%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC%E5%9E%8B-150Mbps-GW-USNANO2A/dp/B00ESA34GA/ref=sr_1_2?ie=UTF8&qid=1402773295&sr=8-2&keywords=%E7%84%A1%E7%B7%9Alan+usb) を利用
-   - 無線LANのつなげるためのコマンドは以下
+
+### 準備
+- [pyserial](http://pyserial.sourceforge.net/) を入れる
+
+```
+$ sudo easy_install pyserial
+```
+
+もしくはpip入っているなら
+
+```
+$ pip install -r requirements.txt
+```
+
+
+### rpiでの無線LAN接続方法
+
+- USBタイプの無線LANドングル [GW-USNANO2A](http://www.amazon.co.jp/%E3%80%90Amazon-co-jp%E9%99%90%E5%AE%9A%E3%80%91PLANEX-%E7%84%A1%E7%B7%9ALAN%E5%AD%90%E6%A9%9F-USB%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC%E5%9E%8B-150Mbps-GW-USNANO2A/dp/B00ESA34GA/ref=sr_1_2?ie=UTF8&qid=1402773295&sr=8-2&keywords=%E7%84%A1%E7%B7%9Alan+usb) を利用
+- 無線LANのつなげるためのコマンドは以下
    
 ```
 # vi /etc/network/interfaces
@@ -78,7 +109,7 @@ watering
 127.0.1.1       watering
 ```
 
-- そうすると、外部から以下のコマンドでsshできる
+- そうすると、外部PCから以下のコマンドでsshできる
 
 ```
 hide@mac$ ssh pi@watering.local
