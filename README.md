@@ -3,8 +3,6 @@
    - [http://beatrobo.doorkeeper.jp/events/12214](http://beatrobo.doorkeeper.jp/events/12214)
    - [https://www.facebook.com/hashtag/brhack](https://www.facebook.com/hashtag/brhack)
 - 私の作るものは「全自動水やりロボット」から「”水やって“と言ってくれるロボット」に変更となりました！
-
-- いいわけ
    - 人が水をやらないといけない。
    - ロボットにとってはヒトもシステムの一部なのです。
    - つまりは、ロボットがヒトを使って水やりを達成しております。
@@ -54,11 +52,12 @@ $ screen /dev/tty.usbmodem1411 57600
 - 使っているセンサは [DHT11 Temperature and Humidity Sensor](http://www.dfrobot.com/index.php?route=product/product&product_id=174#.U51Xyo1_vho)
    - 秋月で[買えます](http://akizukidenshi.com/catalog/g/gM-07040/)。￥520
 - ライブラリは[こちら](https://github.com/adafruit/DHT-sensor-library)
-   - submodule として登録しています。ルートディレクトリで以下のコマンドを実行すると、arduino/DHTにライブラリがロードされます
+   - インストール方法は以下。以下のコマンドを実行してから、Arduino IDEを再起動。
+   
 ```
-$ git submodule init --update
+$ git clone git@github.com:adafruit/DHT-sensor-library.git
+$ cp -rf DHT-sensor-library ~/Documents/Arduino/libraries/
 ```
-
 
 
 ## RaspberryPi (Model A)

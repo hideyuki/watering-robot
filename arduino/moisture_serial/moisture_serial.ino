@@ -52,9 +52,9 @@ void loop(){
   }
   else if(c=='t'){
     // Temperature sensor
-    float h = dht.readHumidity();
+    //float h = dht.readHumidity();
     float t = dht.readTemperature();
-    Serial.println(h);
+    //Serial.println(h);
     Serial.println(t);
   }
 }
