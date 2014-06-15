@@ -5,7 +5,7 @@ import serial
 import time
 
 SERIAL_DEV = '/dev/tty.usbmodem1411'
-SERIAL_BAUDRATE = 57600
+SERIAL_BAUDRATE = 9600
 
 s = serial.Serial(SERIAL_DEV, SERIAL_BAUDRATE)
 
@@ -16,4 +16,5 @@ while True:
   time.sleep(1.0)
   s.write("m\r\n")
   val = int(s.readline())
+  print val
 

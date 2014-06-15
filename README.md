@@ -27,7 +27,7 @@
    - m: Moisture。湿度センサのアナログ値を返す
    - t: Temperature。温度センサのアナログ値を返す
 - 湿度センサは [http://akizukidenshi.com/catalog/g/gM-07047/](http://akizukidenshi.com/catalog/g/gM-07047/)
-- シリアルの通信速度は 57600 bps
+- シリアルの通信速度は 9600 bps
 - screenでシリアル通信するコマンド
 
 ```
@@ -63,12 +63,15 @@ $ cp -rf DHT-sensor-library ~/Documents/Arduino/libraries/
 ## RaspberryPi (Model A)
 - Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
 - Raspbian with 4GB SD Card
+- ピン配置は以下 (Model Bとはピン配置が異なっているので注意)
+
+![image](http://www.marcomc.com/wp-content/uploads/2013/05/GPIO.png)
 
 ### 準備
 - [pyserial](http://pyserial.sourceforge.net/) を入れる
 
 ```
-$ sudo easy_install pyserial
+$ sudo apt-get install python-serial
 ```
 
 もしくはpip入っているなら
