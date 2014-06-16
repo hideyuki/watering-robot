@@ -11,16 +11,16 @@ SERIAL_BAUDRATE = 9600
 s = serial.Serial(SERIAL_DEV, SERIAL_BAUDRATE)
 
 # wait for preparing the Arduino
-time.sleep(3.0)
+ime.sleep(2.0)
 
 s.write("m\r\n")
 moisture = int(s.readline())
 
-time.sleep(1.0)
+time.sleep(0.1)
 
 s.write("t\r\n")
-temperature = int(s.readline())
+temperature = int(float(s.readline()))
 
-print "Moisture: " + moisture
-print "Temperature: " + temperature
+print "Moisture: " + str(moisture)
+print "Temperature: " + str(temperature)
 
