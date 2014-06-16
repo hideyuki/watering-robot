@@ -126,4 +126,10 @@ watering
 hide@mac$ ssh pi@watering.local
 ```
 
+### cronでのスクリプト実行
+1日おきにhubotに温湿度情報を通知。
+
+```
+0 12 * * * export HUBOT_API_BASE_URL=http://hogehoge.com; python /home/pi/watering-robot/rpi/serial-hubot.py;
+```
 	
