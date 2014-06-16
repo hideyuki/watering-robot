@@ -5,7 +5,6 @@
  */
 
 #include <DHT.h>
-#include <SoftwareSerial.h>
 
 #define SAMPLE_COUNT 20
 #define SAMPLE_DELAY 20
@@ -19,7 +18,6 @@
 
 // variables
 DHT dht(DHT_PIN, DHT_TYPE);
-SoftwareSerial ser(RX_PIN, TX_PIN);
 
 void setup(){
   // pin
@@ -31,9 +29,6 @@ void setup(){
   
   // HDHT
   dht.begin();
-  
-  // serial for rpi
-  ser.begin(BAUDRATE);
 }
 
 // get analog value with avarage of some samples

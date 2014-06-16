@@ -1,5 +1,6 @@
-# 水やりロボット 改め、「水やって！」というロボット #brhack
-- Jun. 14, 2914: Beatrobo ハードウェアハッカソン で作ったものです。
+# 水やりロボット 改め、"水やって！"というロボット
+ 
+- Jun. 14, 2914: Beatrobo ハードウェアハッカソン #brhack で作ったものです。
    - [http://beatrobo.doorkeeper.jp/events/12214](http://beatrobo.doorkeeper.jp/events/12214)
    - [https://www.facebook.com/hashtag/brhack](https://www.facebook.com/hashtag/brhack)
 - 私の作るものは「全自動水やりロボット」から「”水やって“と言ってくれるロボット」に変更となりました！
@@ -18,11 +19,14 @@
    - そのままオンラインで注文できます。
 
 ## Arduino
+![image](http://d1j1kxp9fqehmk.cloudfront.net/catalog/product/cache/1/image/500x500/9df78eab33525d08d6e5fb8d27136e95/1/_/1_13_27.jpg)
+
 - 利用しているボード: [SainSmart UNO R3 ATmega328-AU Development Board Compatible With Arduino UNO R3](http://www.sainsmart.com/featured-products/sainsmart-uno-r3-atmega328-au-development-board-compatible-with-arduino-uno-r3.html)
    - 普通のArduinoとは違い 3.3V zでの動作が可能。RaspberryPiと電圧変換なく接続できるようになります。 
    - [amazonから購入](http://www.amazon.co.jp/%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%EF%BC%88SainSmart%EF%BC%89UNO-R3-ATmega328P%E6%90%AD%E8%BC%89%EF%BC%81-UNO-Duemilanove/dp/B00BPISRWE/ref=sr_1_1?ie=UTF8&qid=1402799424&sr=8-1&keywords=SainSmart+UNO+R3)できます。￥1,990 (2014年6月15日現在) 
    - マニュアルは[こちら](http://www.sainsmart.com/zen/documents/20-011-937/SainSmart-UNO-R3.pdf)
-- シリアル経由で送られてくるコマンドにより、湿度センサ・温度センサのアナログ値をシリアルでraspberryPiに送ります
+- シリアル経由で送られてくるコマンドにより、湿度センサ・温度センサのアナログ値をシリアルでRaspberryPiに送ります。
+   - RaspberryPiとは、USB経由で接続
 - コマンド一覧
    - m: Moisture。湿度センサのアナログ値を返す
    - t: Temperature。温度センサのアナログ値を返す
@@ -52,6 +56,7 @@ $ screen /dev/tty.usbmodem1411 57600
 - 使っているセンサは [DHT11 Temperature and Humidity Sensor](http://www.dfrobot.com/index.php?route=product/product&product_id=174#.U51Xyo1_vho)
    - 秋月で[買えます](http://akizukidenshi.com/catalog/g/gM-07040/)。￥520
 - ライブラリは[こちら](https://github.com/adafruit/DHT-sensor-library)
+   - 参考: [adafruitのDHT11の動かし方チュートリアル](https://learn.adafruit.com/dht/using-a-dhtxx-sensor)
    - インストール方法は以下。以下のコマンドを実行してから、Arduino IDEを再起動。
    
 ```
@@ -61,11 +66,9 @@ $ cp -rf DHT-sensor-library ~/Documents/Arduino/libraries/
 
 
 ## RaspberryPi (Model A)
-- Arduinoから温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
+- Arduino から温湿度のアナログ値を取得したらhubotのHTTP APIに投げる
 - Raspbian with 4GB SD Card
-- ピン配置は以下 (Model Bとはピン配置が異なっているので注意)
-
-![image](http://www.marcomc.com/wp-content/uploads/2013/05/GPIO.png)
+- Arduino と RaspberryPi を USB で接続すると、RaspberryPi には `/dev/ttyACM0` と認識される。
 
 ### 準備
 - [pyserial](http://pyserial.sourceforge.net/) を入れる
